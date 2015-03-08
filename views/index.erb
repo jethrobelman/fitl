@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Hello Client Monkey 3</title>
+<title>Hello Client Monkey 4</title>
 <script type="text/javascript"
 src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
 <script type="text/javascript"
@@ -37,7 +37,9 @@ conn.accept();
 });
 
 function call() {
-Twilio.Device.connect();
+// get the phone number to connect the call to
+params = {"PhoneNumber": $("#number").val()};
+Twilio.Device.connect(params);
 }
 
 function hangup() {
@@ -53,6 +55,9 @@ Call
 <button class="hangup" onclick="hangup();">
 Hangup
 </button>
+
+<input type="text" id="number" name="number"
+placeholder="Enter a phone number to call"/>
 
 <div id="log">Loading pigeons...</div>
 </body>
